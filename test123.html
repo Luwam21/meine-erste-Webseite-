@@ -1,0 +1,129 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+<title>Meine erste Webseite</title>
+
+<style>
+
+body{
+font-family: Arial;
+text-align: center;
+background: linear-gradient(to right,#74ebd5,#ACB6E5);
+margin:0;
+padding:40px;
+}
+
+.menu{
+background: rgba(0,0,0,0.3);
+padding:15px;
+}
+
+.menu a:hover{
+color:yellow;
+}
+
+img{
+width:350px;
+border-radius:15px;
+box-shadow:0px 10px 25px rgba(0,0,0,0.4);
+margin:20px 0;
+}
+
+button{
+padding:12px 20px;
+margin:10px;
+border:none;
+border-radius:25px;
+background:white;
+font-size:16px;
+cursor:pointer;
+}
+
+button:hover{
+background:black;
+color:white;
+}
+
+img:hover{
+transform: scale(1.1);
+transition: 0.4s;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="menu">
+<a href="#">Home</a>
+<a href="#">Bilder</a>
+<a href="#">Kontakt</a>
+</div>
+
+<h1>Willkommen auf meiner Webseite</h1>
+
+<p>Das ist meine erste selbst gebaute Webseite</p>
+
+<img id="meinBild" src="urlaub.jpg">
+
+<br>
+
+<button onclick="bildEinAus()">Bild ein / aus</button>
+
+<button onclick="document.body.style.background='lightgreen'">Grün</button>
+
+<button onclick="document.body.style.background='lightblue'">Blau</button>
+
+<button onclick="document.getElementById('meinBild').style.display='none'">Bild verstecken</button>
+
+<button onclick="bildWechseln()">Bild wechseln</button>
+
+<script>
+
+function bildEinAus(){
+
+var bild = document.getElementById("meinBild");
+
+if(bild.style.display === "none"){
+bild.style.display = "block";
+}else{
+bild.style.display = "none";
+}
+
+}
+
+function bildWechseln(){
+document.getElementById("meinBild").src="urlaub2.jpg";
+}
+
+var bilder=["urlaub.jpg","urlaub2.jpg","urlaub3.jpg"];
+
+var nummer=0;
+
+function slideshow(){
+
+nummer++;
+
+if(nummer>=bilder.length){
+nummer=0;
+}
+
+document.getElementById("meinBild").src=bilder[nummer];
+
+}
+
+setInterval(slideshow,3000);
+
+</script>
+
+</body>
+
+</html>
+
+
+
+
+
